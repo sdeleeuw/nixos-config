@@ -12,5 +12,17 @@
 
   networking.networkmanager.enable = true;
 
+  users.users = {
+    sander = {
+      isNormalUser = true;
+      home = "/home/sander";
+      description = "Sander";
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
+    };
+  };
+
   system.stateVersion = "26.05";
 }
