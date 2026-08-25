@@ -28,7 +28,9 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
+    git
     kitty
+    vim
   ];
 
   system.stateVersion = "26.05";
