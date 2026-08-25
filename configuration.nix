@@ -24,5 +24,12 @@
     };
   };
 
+  programs.hyprland.enable = true;
+  programs.firefox.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    kitty
+  ];
+
   system.stateVersion = "26.05";
 }
