@@ -13,6 +13,8 @@
   networking.hostName = "infinity";
   networking.networkmanager.enable = true;
 
+  time.timeZone = "Europe/Amsterdam";
+
   users.users = {
     sander = {
       isNormalUser = true;
