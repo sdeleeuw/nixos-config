@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ../../programs/hyprland/home.nix
       ../../programs/waybar/home.nix
     ];
 
