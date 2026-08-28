@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../desktops/hyprland/hyprland.nix
+      ../../desktops/hyprland/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [
+      ../../programs/waybar/home.nix
+    ];
+
   home.username = "sander";
   home.homeDirectory = "/home/sander";
 
