@@ -6,8 +6,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Sander de Leeuw";
-    userEmail = "s.deleeuw@gmail.com";
+    settings.user = {
+      name = "Sander de Leeuw";
+      email = "s.deleeuw@gmail.com";
+    };
   };
 
   home.stateVersion = "26.05";
