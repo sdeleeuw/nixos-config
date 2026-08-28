@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ../../desktops/hyprland/hyprland.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -30,15 +31,6 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  programs.hyprland.enable = true;
-  programs.firefox.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-    kitty
-    vim
-  ];
 
   system.stateVersion = "26.05";
 }
