@@ -6,10 +6,9 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git
+    hyprlauncher
     hyprpaper
     kitty
-    vim
   ];
 
   fonts.packages = with pkgs; [
