@@ -24,8 +24,9 @@
       home = "/home/sander";
       description = "Sander";
       extraGroups = [
-        "wheel"
+        "input"
         "networkmanager"
+        "wheel"
       ];
     };
   };
