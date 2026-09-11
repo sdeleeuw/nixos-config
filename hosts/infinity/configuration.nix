@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../../desktops/noctalia/configuration.nix
+      ../../programs/1password/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
