@@ -4,9 +4,7 @@
   imports =
     [
       ../../programs/hyprland/home.nix
-      ../../programs/hyprpaper/home.nix
       ../../programs/kitty/home.nix
-      ../../programs/waybar/home.nix
     ];
 
   home.username = "sander";

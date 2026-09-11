@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
@@ -22,6 +27,10 @@
           home-manager.users.sander = import ./users/sander/home.nix;
         }
       ];
+
+      specialArgs = {
+        inherit inputs;
+      };
     };
   };
 }
