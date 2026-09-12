@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.noctalia.nixosModules.default
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   environment.systemPackages = with pkgs; [
@@ -17,6 +18,16 @@
 
     # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
     recommendedServices.enable = true;
+  };
+
+  # Graphical login via greetd, replacing manual TTY + start-hyprland.
+  programs.noctalia-greeter = {
+    enable = true;
+
+    settings = {
+      session.default = "Hyprland";
+      user.default = "sander";
+    };
   };
 
   # sander always gets this desktop's home-manager config on any host that
