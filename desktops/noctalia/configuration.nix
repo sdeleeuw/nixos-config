@@ -18,4 +18,12 @@
     # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
     recommendedServices.enable = true;
   };
+
+  # sander always gets this desktop's home-manager config on any host that
+  # imports this module. Other users are unaffected.
+  home-manager.users.sander.imports = [
+    ./home.nix
+    ../../programs/hyprland/home.nix
+    ../../programs/kitty/home.nix
+  ];
 }
