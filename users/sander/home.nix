@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ../../desktops/noctalia/home.nix
       ../../programs/hyprland/home.nix
       ../../programs/kitty/home.nix
     ];

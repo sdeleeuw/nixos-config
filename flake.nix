@@ -24,6 +24,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.sander = import ./users/sander/home.nix;
         }
       ];
