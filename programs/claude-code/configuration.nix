@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePackages = [ "claude-code" ];
 
   environment.systemPackages = [
     pkgs.claude-code
