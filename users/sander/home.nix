@@ -4,6 +4,7 @@
   imports =
     [
       ../../desktops/noctalia/home.nix
+      ../../programs/hermes-agent/home.nix
       ../../programs/hyprland/home.nix
       ../../programs/kitty/home.nix
     ];
