@@ -7,6 +7,7 @@
       ../../desktops/noctalia/configuration.nix
       ../../programs/1password/configuration.nix
       ../../programs/claude-code/configuration.nix
+      ../../programs/cursor/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
