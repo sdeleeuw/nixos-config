@@ -9,5 +9,7 @@
     enable = true;
 
     settings.theme.builtin = "Nord";
+    settings.dock.enabled = true;
+    settings.dock.pinned = [ "kitty" "firefox" "cursor" ];
   };
 }
