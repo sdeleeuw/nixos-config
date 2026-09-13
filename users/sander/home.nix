@@ -26,5 +26,7 @@
     };
   };
 
+  programs.vim.enable = true;
+
   home.stateVersion = "26.05";
 }
