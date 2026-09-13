@@ -8,9 +8,13 @@
 
   environment.systemPackages = with pkgs; [
     kitty
+    mousepad
   ];
 
+  services.gvfs.enable = true;
+
   programs.hyprland.enable = true;
+  programs.thunar.enable = true;
 
   programs.noctalia = {
     enable = true;
