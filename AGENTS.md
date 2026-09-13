@@ -32,3 +32,12 @@ Modules are split by concern and composed via imports:
 - **Unfree packages**: never set `nixpkgs.config.allowUnfree = true` or override `allowUnfreePredicate` globally. Each module that needs an unfree package declares it locally with `nixpkgs.config.allowUnfreePackages = [ "pkg-name" ]`, which merges additively across modules (see `programs/1password/configuration.nix`, `programs/claude-code/configuration.nix`).
 - **Secrets**: never committed to the repo or referenced as Nix store paths (which would copy them into the world-readable store). Reference a plain runtime path instead (e.g. `"${config.home.homeDirectory}/.config/hermes-agent/env"` passed to `environmentFiles`) and document that the user must create the file themselves.
 - **Commit messages**: focus on *why*, not *what* — the diff already shows what changed. Look at `git log` for tone/length before writing one.
+
+### Noctalia gotchas
+
+- **Config vs runtime state**: `programs.noctalia.settings` (Nix) only seeds *defaults* into `~/.config/noctalia/config.toml`. The app's own mutable state at `~/.local/state/noctalia/settings.toml` (written when the user changes things through the settings UI) can shadow those defaults once it exists — so a rebuild doesn't always change what's visibly active until the runtime state is also updated (via the UI, or by clearing it).
+- **Discovering valid ids**: dock pins, theme template ids, and greeter color schemes aren't documented in this repo. Find them by inspecting the installed packages directly: theme template ids are the keys under `[templates.*]` in `share/noctalia/assets/templates/builtin.toml` inside the `noctalia` package in the Nix store; dock pin ids match `.desktop` file basenames under `/run/current-system/sw/share/applications`; builtin color scheme names can be found via the `noctalia` package's shell completions (e.g. `share/bash-completion/completions/noctalia`).
+
+### Hardware note
+
+`infinity` is a laptop whose built-in panel is `eDP-1`, not a desktop with a fixed external monitor. Don't hardcode external output names (e.g. `DP-1`) into Hyprland monitor/workspace rules unless the rule is meant to apply only while docked — it silently breaks (or leaves things in an unexpected state, e.g. wrong starting workspace) when undocked.
