@@ -27,6 +27,7 @@
     settings = {
       session.default = "Hyprland";
       user.default = "sander";
+      appearance.scheme = "Nord";
     };
   };
 
