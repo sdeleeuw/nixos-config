@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     mousepad
+    galculator
   ];
 
   services.gvfs.enable = true;
