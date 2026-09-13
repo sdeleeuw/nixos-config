@@ -6,6 +6,7 @@
       ../../programs/hermes-agent/home.nix
       ../../programs/google-chrome/home.nix
       ../../programs/vscodium/home.nix
+      ../../programs/claude-code/home.nix
     ];
 
   home.username = "sander";
