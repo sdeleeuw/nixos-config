@@ -5,6 +5,7 @@
     [
       ../../programs/hermes-agent/home.nix
       ../../programs/google-chrome/home.nix
+      ../../programs/vscodium/home.nix
     ];
 
   home.username = "sander";
