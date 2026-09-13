@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   imports =
@@ -37,11 +37,8 @@
     };
   };
 
+  programs.git.enable = true;
   programs.vim.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
