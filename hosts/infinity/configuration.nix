@@ -10,6 +10,7 @@
       ../../programs/cursor/configuration.nix
       ../../programs/google-chrome/configuration.nix
       ../../programs/spotify/configuration.nix
+      ../../programs/slack/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
