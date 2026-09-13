@@ -14,34 +14,40 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.infinity = nixpkgs.lib.nixosSystem {
-      modules = [
-        ./hosts/infinity/configuration.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.sander = import ./users/sander/home.nix;
-        }
-      ];
-
-      specialArgs = {
-        inherit inputs;
-      };
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
+    {
+      nixosConfigurations = {
+        infinity = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/infinity/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.sander = import ./users/sander/home.nix;
+              };
+            }
+          ];
+
+          specialArgs = {
+            inherit inputs;
+          };
+        };
+      };
+    };
 }
