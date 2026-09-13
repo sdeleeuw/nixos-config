@@ -5,6 +5,8 @@
     inputs.noctalia.homeModules.default
   ];
 
+  programs.firefox.enable = true;
+
   programs.noctalia = {
     enable = true;
 
