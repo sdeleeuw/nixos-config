@@ -4,6 +4,7 @@
   imports =
     [
       ../../programs/hermes-agent/home.nix
+      ../../programs/google-chrome/home.nix
     ];
 
   home.username = "sander";
