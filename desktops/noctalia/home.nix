@@ -1,9 +1,17 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
     inputs.noctalia.homeModules.default
   ];
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
 
   programs.noctalia = {
     enable = true;
