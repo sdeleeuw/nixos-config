@@ -19,6 +19,15 @@
     recursive = true;
   };
 
+  # Creates ~/Downloads, ~/Documents, ~/Pictures, ~/Music, ~/Videos and
+  # ~/Projects (home-manager's default set, which conveniently already
+  # includes Projects) so the Thunar bookmarks in programs/thunar/home.nix
+  # resolve to real directories instead of dangling shortcuts.
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
+
   programs.git = {
     enable = true;
     settings.user = {

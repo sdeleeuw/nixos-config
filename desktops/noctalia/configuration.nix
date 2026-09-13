@@ -24,6 +24,10 @@
   programs.hyprland.enable = true;
   programs.thunar.enable = true;
 
+  # Required for the home-manager xfconf module (programs/thunar/home.nix)
+  # to apply Thunar's settings without a systemd activation error.
+  programs.xfconf.enable = true;
+
   programs.noctalia = {
     enable = true;
 
@@ -48,5 +52,6 @@
     ./home.nix
     ../../programs/hyprland/home.nix
     ../../programs/kitty/home.nix
+    ../../programs/thunar/home.nix
   ];
 }
