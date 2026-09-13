@@ -18,12 +18,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-uuid/838dee72-0e92-40bc-a08a-e59055930dd2";
 
+  time.timeZone = "Europe/Amsterdam";
+  i18n.defaultLocale = "en_US.UTF-8";
+
   networking.hostName = "infinity";
   networking.networkmanager.enable = true;
-
-  time.timeZone = "Europe/Amsterdam";
-
-  i18n.defaultLocale = "en_US.UTF-8";
 
   users.users = {
     sander = {
