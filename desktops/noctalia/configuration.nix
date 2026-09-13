@@ -11,7 +11,6 @@
   ];
 
   programs.hyprland.enable = true;
-  programs.firefox.enable = true;
 
   programs.noctalia = {
     enable = true;

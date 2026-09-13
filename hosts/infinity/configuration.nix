@@ -8,6 +8,7 @@
       ../../programs/1password/configuration.nix
       ../../programs/claude-code/configuration.nix
       ../../programs/cursor/configuration.nix
+      ../../programs/firefox/configuration.nix
       ../../programs/google-chrome/configuration.nix
       ../../programs/spotify/configuration.nix
       ../../programs/slack/configuration.nix
