@@ -9,6 +9,7 @@
       ../../programs/claude-code/configuration.nix
       ../../programs/cursor/configuration.nix
       ../../programs/google-chrome/configuration.nix
+      ../../programs/spotify/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
