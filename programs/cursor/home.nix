@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  programs.cursor.enable = true;
+}
