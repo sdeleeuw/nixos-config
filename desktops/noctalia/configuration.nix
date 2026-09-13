@@ -10,9 +10,16 @@
     kitty
     mousepad
     galculator
+    adw-gtk3
   ];
 
   services.gvfs.enable = true;
+
+  # Needed for Noctalia's gtk3/gtk4 templates: without the dconf GSettings
+  # backend, its gsettings/dconf writes (gtk-theme, color-scheme) are inert
+  # and GTK apps stay on stock Adwaita light. adw-gtk3 above is the theme it
+  # switches to (its apply.sh skips the switch entirely if that's missing).
+  programs.dconf.enable = true;
 
   programs.hyprland.enable = true;
   programs.thunar.enable = true;
