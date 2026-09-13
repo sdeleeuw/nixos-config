@@ -254,6 +254,12 @@ hl.window_rule({
     size = { 1080, 920 },
 })
 
+-- Galculator doesn't tile well, always open it floating
+hl.window_rule({
+    match = { class = "^galculator$" },
+    float = true,
+})
+
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
