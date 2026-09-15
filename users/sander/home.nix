@@ -8,6 +8,7 @@
       ../../programs/google-chrome/home.nix
       ../../programs/vscodium/home.nix
       ../../programs/claude-code/home.nix
+      ../../programs/claude-desktop/home.nix
       ../../programs/cursor/home.nix
     ];
 
