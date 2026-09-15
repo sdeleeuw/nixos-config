@@ -50,7 +50,6 @@
   # imports this module. Other users are unaffected.
   home-manager.users.sander.imports = [
     ./home.nix
-    ../../programs/hyprland/home.nix
     ../../programs/kitty/home.nix
     ../../programs/thunar/home.nix
   ];
