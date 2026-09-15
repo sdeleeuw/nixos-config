@@ -63,7 +63,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- covers tools like `ssh-add` that read SSH_AUTH_SOCK itself rather than
 -- going through ~/.ssh/config's IdentityAgent.
 hl.env("SSH_AUTH_SOCK", "/run/user/1000/ssh-agent")
-hl.env("SSH_ASKPASS", "wayprompt")
+hl.env("SSH_ASKPASS", "wayprompt-ssh-askpass")
 hl.env("SSH_ASKPASS_REQUIRE", "prefer")
 
 
