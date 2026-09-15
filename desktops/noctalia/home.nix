@@ -39,6 +39,6 @@
     settings.theme.templates.builtin_ids = [ "gtk3" "gtk4" "qt" "kitty" "hyprland" ];
     settings.bar.default.margin_ends = 0;
     settings.dock.enabled = true;
-    settings.dock.pinned = [ "thunar" "kitty" "google-chrome" "firefox" "cursor" "codium" "slack" "1password" "spotify" "org.xfce.mousepad" "galculator" ];
+    settings.dock.pinned = [ "thunar" "kitty" "google-chrome" "firefox" "cursor" "codium" "com.anthropic.Claude" "slack" "1password" "spotify" "org.xfce.mousepad" "galculator" ];
   };
 }
