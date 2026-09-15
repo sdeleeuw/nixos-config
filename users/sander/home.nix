@@ -39,6 +39,11 @@
 
   programs.vim.enable = true;
 
+  programs.bash = {
+    enable = true;
+    shellAliases.dc = "docker compose";
+  };
+
   # Fixed-path SSH agent (socket at $XDG_RUNTIME_DIR/ssh-agent) instead of a
   # password manager's agent. IdentityAgent overrides SSH_AUTH_SOCK for ssh
   # and git, so this works even without SSH_AUTH_SOCK exported in the shell.

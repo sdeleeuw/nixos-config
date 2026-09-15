@@ -9,6 +9,7 @@
       ../../programs/claude-code/configuration.nix
       ../../programs/claude-desktop/configuration.nix
       ../../programs/cursor/configuration.nix
+      ../../programs/docker/configuration.nix
       ../../programs/firefox/configuration.nix
       ../../programs/google-chrome/configuration.nix
       ../../programs/spotify/configuration.nix
@@ -31,6 +32,7 @@
       home = "/home/sander";
       description = "Sander";
       extraGroups = [
+        "docker"
         "input"
         "networkmanager"
         "wheel"
