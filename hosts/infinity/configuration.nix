@@ -7,6 +7,7 @@
       ../../desktops/noctalia/configuration.nix
       ../../programs/1password/configuration.nix
       ../../programs/claude-code/configuration.nix
+      ../../programs/claude-desktop/configuration.nix
       ../../programs/cursor/configuration.nix
       ../../programs/firefox/configuration.nix
       ../../programs/google-chrome/configuration.nix
