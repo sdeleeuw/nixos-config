@@ -39,5 +39,15 @@
 
   programs.vim.enable = true;
 
+  # Fixed-path SSH agent (socket at $XDG_RUNTIME_DIR/ssh-agent) instead of a
+  # password manager's agent. IdentityAgent overrides SSH_AUTH_SOCK for ssh
+  # and git, so this works even without SSH_AUTH_SOCK exported in the shell.
+  services.ssh-agent.enable = true;
+
+  programs.ssh = {
+    enable = true;
+    settings."*".IdentityAgent = "\${XDG_RUNTIME_DIR}/ssh-agent";
+  };
+
   home.stateVersion = "26.05";
 }
