@@ -46,7 +46,22 @@
 
   programs.ssh = {
     enable = true;
-    settings."*".IdentityAgent = "\${XDG_RUNTIME_DIR}/ssh-agent";
+    # The upstream default config is deprecated; pin the values we want
+    # explicitly instead (same defaults as before, plus IdentityAgent).
+    enableDefaultConfig = false;
+    settings."*" = {
+      IdentityAgent = "\${XDG_RUNTIME_DIR}/ssh-agent";
+      ForwardAgent = false;
+      AddKeysToAgent = "no";
+      Compression = false;
+      ServerAliveInterval = 0;
+      ServerAliveCountMax = 3;
+      HashKnownHosts = false;
+      UserKnownHostsFile = "~/.ssh/known_hosts";
+      ControlMaster = "no";
+      ControlPath = "~/.ssh/master-%r@%n:%p";
+      ControlPersist = "no";
+    };
   };
 
   home.stateVersion = "26.05";
