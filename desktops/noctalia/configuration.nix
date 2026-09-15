@@ -36,7 +36,7 @@
   };
 
   # Graphical login via greetd, replacing manual TTY + start-hyprland.
-  programs.noctalia-greeter = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
 
     settings = {
