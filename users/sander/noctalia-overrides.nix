@@ -1,22 +1,26 @@
-{ lib, options, ... }:
+{ config, lib, options, ... }:
 
 {
-  # Only when a desktop that imports Noctalia is active — overrides the
-  # desktop's mkDefault dock pin list.
+  # Only when a desktop that imports Noctalia is active.
   config = lib.optionalAttrs (options.programs ? noctalia) {
-    programs.noctalia.settings.dock.pinned = [
-      "thunar"
-      "kitty"
-      "google-chrome"
-      "firefox"
-      "cursor"
-      "codium"
-      "com.anthropic.Claude"
-      "slack"
-      "1password"
-      "spotify"
-      "org.xfce.mousepad"
-      "galculator"
-    ];
+    programs.noctalia.settings = {
+      wallpaper.directory = "${config.home.homeDirectory}/.wallpapers";
+      wallpaper.default.path = "${config.home.homeDirectory}/.wallpapers/nordic.jpg";
+
+      dock.pinned = [
+        "thunar"
+        "kitty"
+        "google-chrome"
+        "firefox"
+        "cursor"
+        "codium"
+        "com.anthropic.Claude"
+        "slack"
+        "1password"
+        "spotify"
+        "org.xfce.mousepad"
+        "galculator"
+      ];
+    };
   };
 }
