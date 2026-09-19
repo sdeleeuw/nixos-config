@@ -3,11 +3,11 @@
 {
   imports =
     [
-      ../../programs/hermes-agent/home.nix
-      ../../programs/google-chrome/home.nix
-      ../../programs/vscodium/home.nix
       ../../programs/claude-desktop/home.nix
       ../../programs/cursor/home.nix
+      ../../programs/hermes-agent/home.nix
+      ../../programs/slack/home.nix
+      ../../programs/vscodium/home.nix
       ./noctalia-overrides.nix
     ];
 
