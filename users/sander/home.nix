@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, ... }:
 
 {
   imports =
@@ -9,6 +9,7 @@
       ../../programs/vscodium/home.nix
       ../../programs/claude-desktop/home.nix
       ../../programs/cursor/home.nix
+      ./noctalia-overrides.nix
     ];
 
   home.username = "sander";
@@ -21,12 +22,21 @@
 
   # Creates ~/Downloads, ~/Documents, ~/Pictures, ~/Music, ~/Videos and
   # ~/Projects (home-manager's default set, which conveniently already
-  # includes Projects) so the Thunar bookmarks in programs/thunar/home.nix
-  # resolve to real directories instead of dangling shortcuts.
+  # includes Projects) so the gtk bookmarks below resolve to real
+  # directories instead of dangling shortcuts.
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
   };
+
+  # Seed mutable bookmarks once; edit freely afterwards without HM clobbering.
+  home.activation.seedGtkBookmarks = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    bookmarks="$HOME/.config/gtk-3.0/bookmarks"
+    if [[ ! -e $bookmarks ]]; then
+      mkdir -p "$(dirname "$bookmarks")"
+      install -m 644 ${./gtk-3.0/bookmarks} "$bookmarks"
+    fi
+  '';
 
   programs.git = {
     enable = true;
