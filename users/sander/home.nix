@@ -4,7 +4,6 @@
   imports =
     [
       ../../programs/hermes-agent/home.nix
-      ../../programs/firefox/home.nix
       ../../programs/google-chrome/home.nix
       ../../programs/vscodium/home.nix
       ../../programs/claude-desktop/home.nix
