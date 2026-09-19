@@ -11,8 +11,10 @@
       ../../programs/docker/configuration.nix
       ../../programs/firefox/configuration.nix
       ../../programs/google-chrome/configuration.nix
-      ../../programs/spotify/configuration.nix
+      ../../programs/libreoffice/configuration.nix
+      ../../programs/signal-desktop/configuration.nix
       ../../programs/slack/configuration.nix
+      ../../programs/spotify/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

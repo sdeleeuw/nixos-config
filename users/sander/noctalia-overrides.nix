@@ -16,8 +16,11 @@
         "codium"
         "com.anthropic.Claude"
         "slack"
+        "signal"
         "1password"
         "spotify"
+        "writer"
+        "calc"
         "org.xfce.mousepad"
         "galculator"
       ];
