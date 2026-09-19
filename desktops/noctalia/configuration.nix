@@ -7,26 +7,16 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    # Theme Noctalia's gtk3 template switches to; apply.sh skips without it.
+    adw-gtk3
+    galculator
     kitty
     mousepad
-    galculator
-    adw-gtk3
+    # Wayland-native ssh-askpass, used by SSH_ASKPASS in config/hyprland.lua.
+    wayprompt
   ];
 
-  services.gvfs.enable = true;
-
-  # Needed for Noctalia's gtk3/gtk4 templates: without the dconf GSettings
-  # backend, its gsettings/dconf writes (gtk-theme, color-scheme) are inert
-  # and GTK apps stay on stock Adwaita light. adw-gtk3 above is the theme it
-  # switches to (its apply.sh skips the switch entirely if that's missing).
-  programs.dconf.enable = true;
-
   programs.hyprland.enable = true;
-  programs.thunar.enable = true;
-
-  # Required for the home-manager xfconf module (programs/thunar/home.nix)
-  # to apply Thunar's settings without a systemd activation error.
-  programs.xfconf.enable = true;
 
   programs.noctalia = {
     enable = true;
@@ -34,6 +24,19 @@
     # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
     recommendedServices.enable = true;
   };
+
+  programs.thunar.enable = true;
+
+  # Noctalia's gtk templates write theme/color-scheme via dconf; without this
+  # those writes are inert and GTK apps stay on Adwaita light.
+  programs.dconf.enable = true;
+
+  # Required for the home-manager xfconf module (programs/thunar/home.nix)
+  # to apply Thunar's settings without a systemd activation error.
+  programs.xfconf.enable = true;
+
+  # Thunar needs gvfs for trash, removable media, and network mounts.
+  services.gvfs.enable = true;
 
   # Graphical login via greetd, replacing manual TTY + start-hyprland.
   services.displayManager.noctalia-greeter = {
