@@ -11,7 +11,7 @@
         "kitty"
         "thunar"
         "google-chrome"
-        "firefox"
+        "librewolf"
         "cursor"
         "codium"
         "com.anthropic.Claude"
