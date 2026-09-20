@@ -19,6 +19,7 @@
         "signal"
         "1password"
         "spotify"
+        "it.mijorus.gearlever"
         "writer"
         "calc"
         "org.xfce.mousepad"

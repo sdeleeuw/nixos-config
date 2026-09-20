@@ -10,6 +10,7 @@
       ../../programs/cursor/configuration.nix
       ../../programs/docker/configuration.nix
       ../../programs/firefox/configuration.nix
+      ../../programs/gearlever/configuration.nix
       ../../programs/google-chrome/configuration.nix
       ../../programs/libreoffice/configuration.nix
       ../../programs/signal-desktop/configuration.nix
