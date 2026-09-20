@@ -8,8 +8,8 @@
       wallpaper.default.path = "${config.home.homeDirectory}/.wallpapers/nordic.jpg";
 
       dock.pinned = [
-        "thunar"
         "kitty"
+        "thunar"
         "google-chrome"
         "firefox"
         "cursor"
@@ -18,12 +18,13 @@
         "slack"
         "signal"
         "1password"
+        "mullvad-vpn"
         "spotify"
-        "it.mijorus.gearlever"
         "writer"
         "calc"
         "org.xfce.mousepad"
         "galculator"
+        "it.mijorus.gearlever"
       ];
     };
   };
