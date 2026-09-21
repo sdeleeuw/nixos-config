@@ -65,7 +65,7 @@
     settings."*" = {
       IdentityAgent = "\${XDG_RUNTIME_DIR}/ssh-agent";
       ForwardAgent = false;
-      AddKeysToAgent = "no";
+      AddKeysToAgent = "yes";
       Compression = false;
       ServerAliveInterval = 0;
       ServerAliveCountMax = 3;
