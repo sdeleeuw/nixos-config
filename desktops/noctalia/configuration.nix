@@ -37,6 +37,9 @@
   # to apply without a systemd activation error.
   programs.xfconf.enable = true;
 
+  # General-purpose secret-service daemon (libsecret) for storing app secrets.
+  services.gnome.gnome-keyring.enable = true;
+
   # Thunar needs gvfs for trash, removable media, and network mounts.
   services.gvfs.enable = true;
 
@@ -50,6 +53,10 @@
       appearance.scheme = "Nord";
     };
   };
+
+  # The module above only wires PAM auto-unlock for the "login" service by
+  # default; greetd needs it set explicitly.
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # sander always gets this desktop's home-manager config on any host that
   # imports this module. Other users are unaffected.
