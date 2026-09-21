@@ -14,6 +14,8 @@
     mousepad
     # Wayland-native ssh-askpass
     wayprompt
+    # Wayland clipboard CLI
+    wl-clipboard
   ];
 
   programs.hyprland.enable = true;

@@ -29,6 +29,10 @@
   networking.hostName = "infinity";
   networking.networkmanager.enable = true;
 
+  # Enables unprivileged creation of virtual input devices (e.g. for
+  # simulating keystrokes on Wayland). Required by vibe-typer.
+  hardware.uinput.enable = true;
+
   users.users = {
     sander = {
       isNormalUser = true;
@@ -38,6 +42,7 @@
         "docker"
         "input"
         "networkmanager"
+        "uinput"
         "wheel"
       ];
     };
