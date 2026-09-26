@@ -1,13 +1,29 @@
--- Refer to https://wiki.hypr.land/configuring/core/config-options/
+-- Compositor Settings
+-- https://docs.noctalia.dev/noctalia/compositor-settings/hyprland/
+-- https://wiki.hypr.land/configuring/core/config-options/
+
 hl.config({
   general = {
+    -- gaps_in = 5,
     gaps_out = 10,
   },
 
   decoration = {
+    -- rounding = 20,
+    -- rounding_power = 2,
+
+    -- shadow = {
+    --   enabled = true,
+    --   range = 4,
+    --   render_power = 3,
+    --   color = 0xee1a1a1a,
+    -- },
+
     blur = {
+      enabled = true,
       size = 3,
       passes = 2,
+      vibrancy = 0.1696,
     },
   },
 })
@@ -57,6 +73,9 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 --     border_size = 0,
 --     rounding    = 0,
 -- })
+
+-- Persistent Workspaces
+-- https://docs.noctalia.dev/noctalia/compositor-settings/hyprland/
 
 hl.workspace_rule({ workspace = "1", persistent = true, default_name = "web" })
 hl.workspace_rule({ workspace = "2", persistent = true, default_name = "code" })

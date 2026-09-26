@@ -55,6 +55,9 @@ hl.window_rule({
     float = true,
 })
 
+-- Blur
+-- https://docs.noctalia.dev/noctalia/compositor-settings/hyprland/
+
 hl.layer_rule({
   name = "noctalia",
   match = {
