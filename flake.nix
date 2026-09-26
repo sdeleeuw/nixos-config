@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    # Used to access newer versions of specific programs when the stable 
+    # Used to access newer versions of specific programs when the stable
     # channel is outdated.
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
