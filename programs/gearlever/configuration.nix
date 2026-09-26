@@ -8,6 +8,11 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
+
+    # Add amixer so Vibe Typer's AppImage can mute speakers when recording.
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [ pkgs.alsa-utils ];
+    };
   };
 
   environment.systemPackages = [
