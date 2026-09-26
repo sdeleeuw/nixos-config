@@ -16,6 +16,7 @@
         "cursor"
         "codium"
         "com.anthropic.Claude"
+        "paseo"
         "slack"
         "signal"
         "1password"
