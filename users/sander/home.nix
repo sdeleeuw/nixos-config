@@ -1,4 +1,8 @@
-{ lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 
 {
   imports =
@@ -80,6 +84,19 @@
       ControlPersist = "no";
     };
   };
+
+  # `programs.ssh` links `~/.ssh/config` to a read-only file in the Nix
+  # store. OpenSSH rejects that target ("Bad owner or permissions") because
+  # the store file isn't owned by the user, which breaks git pushes from
+  # agents. Force the generated symlink to be replaceable, then overwrite it
+  # with a real user-owned copy after each activation.
+  home.file.".ssh/config".force = true;
+
+  home.activation.sshConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    mkdir -p -m 700 "$HOME/.ssh"
+    rm -f "$HOME/.ssh/config"
+    install -m 600 ${config.home.file.".ssh/config".source} "$HOME/.ssh/config"
+  '';
 
   home.stateVersion = "26.05";
 }
