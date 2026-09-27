@@ -19,7 +19,7 @@
         "paseo"
         "slack"
         "signal"
-        "1password"
+        "com.onepassword.OnePassword"
         "mullvad-vpn"
         "vibe_typer"
         "spotify"

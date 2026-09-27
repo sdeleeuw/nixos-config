@@ -32,6 +32,10 @@
     # Dock
     settings.dock.enabled = true;
     settings.dock.radius = 0;
+    settings.dock.icon_size = 40;
+    settings.dock.main_axis_padding = 8;
+    settings.dock.cross_axis_padding = 4;
+    settings.dock.item_spacing = 4;
     settings.dock.pinned = lib.mkDefault [
       "thunar"
       "kitty"
