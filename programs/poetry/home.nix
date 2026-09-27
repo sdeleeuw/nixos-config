@@ -1,17 +1,10 @@
 {
-  pkgs,
   ...
 }:
 
 {
-  # Deliberately the stable package rather than nixpkgs-unstable: unstable's
-  # poetry is built against Python 3.14, but projects pinning older
-  # pydantic-core (e.g. 2.27.x) only publish wheels up to cp313, so Poetry
-  # falls back to compiling them from source and fails without a toolchain in
-  # PATH. Stable poetry ships Python 3.13, matching those wheels, and is only
-  # a patch version behind anyway.
-  programs.poetry = {
-    enable = true;
-    package = pkgs.poetry;
-  };
+  # Home-manager's default is stable poetry, which runs on Python 3.13.
+  # Unstable's runs on 3.14 and would source-build cp313-only wheels such as
+  # pydantic-core 2.27.x.
+  programs.poetry.enable = true;
 }

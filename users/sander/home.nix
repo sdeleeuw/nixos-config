@@ -19,6 +19,7 @@
       ../../programs/uv/home.nix
       ../../programs/vscodium/home.nix
       ./noctalia-overrides.nix
+      ./oudommen.nix
     ];
 
   home.username = "sander";
