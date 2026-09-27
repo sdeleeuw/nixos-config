@@ -11,6 +11,7 @@
       ../../programs/claude-desktop/home.nix
       ../../programs/cursor/home.nix
       ../../programs/fnm/home.nix
+      ../../programs/github-cli/home.nix
       ../../programs/hermes-agent/home.nix
       ../../programs/pi-coding-agent/home.nix
       ../../programs/poetry/home.nix
