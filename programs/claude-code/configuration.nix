@@ -1,16 +1,5 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   nixpkgs.config.allowUnfreePackages = [ "claude-code" ];
-
-  # Stable nixpkgs lags; take this one package from unstable.
-  nixpkgs.overlays = [
-    (final: prev: {
-      claude-code =
-        (import inputs.nixpkgs-unstable {
-          system = prev.stdenv.hostPlatform.system;
-          config = prev.config;
-        }).claude-code;
-    })
-  ];
 }

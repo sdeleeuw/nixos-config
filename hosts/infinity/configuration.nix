@@ -15,7 +15,6 @@
       ../../programs/libreoffice/configuration.nix
       ../../programs/librewolf/configuration.nix
       ../../programs/mullvad-vpn/configuration.nix
-      ../../programs/pi-coding-agent/configuration.nix
       ../../programs/signal-desktop/configuration.nix
       ../../programs/slack/configuration.nix
       ../../programs/spotify/configuration.nix
