@@ -6,9 +6,11 @@
       ../../programs/claude-code/home.nix
       ../../programs/claude-desktop/home.nix
       ../../programs/cursor/home.nix
+      ../../programs/fnm/home.nix
       ../../programs/hermes-agent/home.nix
       ../../programs/pi-coding-agent/home.nix
       ../../programs/slack/home.nix
+      ../../programs/uv/home.nix
       ../../programs/vscodium/home.nix
       ./noctalia-overrides.nix
     ];
