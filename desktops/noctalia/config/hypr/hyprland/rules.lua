@@ -14,6 +14,30 @@ hl.window_rule({
     float = true,
 })
 
+-- Vibe Typer's recording indicator is a transparent, always-on-top Electron
+-- window. The app tries to register these rules itself through its wlroots
+-- workaround, but it uses `hyprctl keyword`, which Hyprland 0.55's non-legacy
+-- parser rejects ("keyword can't work with non-legacy parsers"). The rules
+-- therefore never land and the indicator gets tiled with a border instead of
+-- floating at the bottom. Apply the equivalent rules here.
+--
+-- The move expression must be written without spaces around the operators
+-- (Hyprland splits the value on whitespace); window_w/window_h resolve to the
+-- indicator's own size, and the 40px matches the app's bottom padding.
+hl.window_rule({
+    name  = "vibe-typer-indicator",
+    match = { class = "^vibe-typer$", title = "^Recording Indicator$" },
+
+    float       = true,
+    pin         = true,
+    border_size = 0,
+    no_blur     = true,
+    no_shadow   = true,
+    no_anim     = true,
+    no_focus    = true,
+    move        = "monitor_w/2-window_w/2 monitor_h-window_h-40",
+})
+
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",
