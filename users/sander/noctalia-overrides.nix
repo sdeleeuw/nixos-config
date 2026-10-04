@@ -17,6 +17,7 @@
         "codium"
         "com.anthropic.Claude"
         "paseo"
+        "com.nousresearch.hermes"
         "slack"
         "signal"
         "com.onepassword.OnePassword"
