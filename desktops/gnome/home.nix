@@ -31,6 +31,10 @@
       picture-options = "zoom";
     };
 
+    # GNOME only shows a close button by default; this is what GNOME Tweaks'
+    # "Titlebar Buttons" toggles write.
+    "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
+
     # Apps that ship with the desktop. sander's full list of favorites lives
     # in gnome-overrides.nix and replaces this list.
     "org/gnome/shell".favorite-apps = lib.mkDefault [
