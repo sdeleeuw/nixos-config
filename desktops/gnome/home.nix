@@ -5,11 +5,13 @@
   # several of the shared apps (Slack, Signal, 1Password, Mullvad, Spotify)
   # still use, which GNOME otherwise hides. Enabling this module also acts as
   # the marker users/sander/gnome-overrides.nix uses to detect a GNOME host.
+  # Dash to Panel merges the top bar and dash into a single taskbar.
   programs.gnome-shell = {
     enable = true;
 
     extensions = [
       { package = pkgs.gnomeExtensions.appindicator; }
+      { package = pkgs.gnomeExtensions.dash-to-panel; }
     ];
   };
 
