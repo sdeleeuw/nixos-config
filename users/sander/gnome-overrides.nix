@@ -33,5 +33,17 @@
       "org.gnome.Calculator.desktop"
       "it.mijorus.gearlever.desktop"
     ];
+
+    # Mutter auto-picks 125% for the t480's 14" 1080p panel and has no
+    # gsettings key for the scale; it only reads monitors.xml. Seed it once
+    # so Settings > Displays can still change it afterwards. The file names
+    # the t480's panel, so mutter ignores it on any other machine.
+    home.activation.seedMonitorsXml = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      monitors="$HOME/.config/monitors.xml"
+      if [[ ! -e $monitors ]]; then
+        mkdir -p "$(dirname "$monitors")"
+        install -m 644 ${./monitors.xml} "$monitors"
+      fi
+    '';
   };
 }
