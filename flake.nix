@@ -57,6 +57,26 @@
             inherit inputs;
           };
         };
+
+        t480 = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/t480/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.sander = import ./users/sander/home.nix;
+              };
+            }
+          ];
+
+          specialArgs = {
+            inherit inputs;
+          };
+        };
       };
     };
 }
