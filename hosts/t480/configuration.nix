@@ -27,6 +27,7 @@
       ../../programs/spotify/configuration.nix
       ../../programs/tlp/configuration.nix
       ../../programs/uv/configuration.nix
+      ../../programs/vibe-typer/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -46,7 +47,6 @@
       description = "Sander";
       extraGroups = [
         "docker"
-        "input"
         "libvirtd"
         "networkmanager"
         "wheel"

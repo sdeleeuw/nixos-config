@@ -20,6 +20,7 @@
       ../../programs/slack/configuration.nix
       ../../programs/spotify/configuration.nix
       ../../programs/uv/configuration.nix
+      ../../programs/vibe-typer/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -32,10 +33,6 @@
   networking.hostName = "infinity";
   networking.networkmanager.enable = true;
 
-  # Enables unprivileged creation of virtual input devices (e.g. for
-  # simulating keystrokes on Wayland). Required by vibe-typer.
-  hardware.uinput.enable = true;
-
   users.users = {
     sander = {
       isNormalUser = true;
@@ -43,10 +40,8 @@
       description = "Sander";
       extraGroups = [
         "docker"
-        "input"
         "libvirtd"
         "networkmanager"
-        "uinput"
         "wheel"
       ];
     };
