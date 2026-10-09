@@ -5,6 +5,12 @@
     [
       ./hardware-configuration.nix
       ../../desktops/gnome/configuration.nix
+      ../../games/dolphin-emu/configuration.nix
+      ../../games/dosbox-staging/configuration.nix
+      ../../games/luanti/configuration.nix
+      ../../games/ppsspp/configuration.nix
+      ../../games/retroarch/configuration.nix
+      ../../games/supertuxkart/configuration.nix
       ../../programs/1password/configuration.nix
       ../../programs/claude-code/configuration.nix
       ../../programs/claude-desktop/configuration.nix
