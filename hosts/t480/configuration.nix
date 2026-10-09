@@ -25,6 +25,7 @@
       ../../programs/signal-desktop/configuration.nix
       ../../programs/slack/configuration.nix
       ../../programs/spotify/configuration.nix
+      ../../programs/tlp/configuration.nix
       ../../programs/uv/configuration.nix
     ];
 
