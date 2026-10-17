@@ -11,6 +11,7 @@
       ../../programs/claude-desktop/configuration.nix
       ../../programs/cursor/configuration.nix
       ../../programs/docker/configuration.nix
+      ../../programs/ffmpeg/configuration.nix
       ../../programs/gearlever/configuration.nix
       ../../programs/google-chrome/configuration.nix
       ../../programs/libreoffice/configuration.nix
