@@ -12,6 +12,7 @@
       ../../games/retroarch/configuration.nix
       ../../games/supertuxkart/configuration.nix
       ../../programs/1password/configuration.nix
+      ../../programs/audacity/configuration.nix
       ../../programs/claude-code/configuration.nix
       ../../programs/claude-desktop/configuration.nix
       ../../programs/cursor/configuration.nix
