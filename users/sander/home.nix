@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -56,6 +57,12 @@
       email = "s.deleeuw@gmail.com";
     };
   };
+
+  # Command-line audio encoders for converting to FLAC and MP3.
+  home.packages = [
+    pkgs.flac
+    pkgs.lame
+  ];
 
   programs.vim.enable = true;
 
