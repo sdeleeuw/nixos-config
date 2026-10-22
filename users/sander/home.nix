@@ -58,10 +58,13 @@
     };
   };
 
-  # Command-line audio encoders for converting to FLAC and MP3.
   home.packages = [
+    # Command-line audio encoders for converting to FLAC and MP3.
     pkgs.flac
     pkgs.lame
+
+    # A python3 on PATH for quick scripts, independent of uv/poetry projects.
+    pkgs.python3
   ];
 
   programs.vim.enable = true;
