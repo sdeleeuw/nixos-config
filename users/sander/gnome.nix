@@ -37,6 +37,12 @@
       # GNOME only shows a close button by default; add minimize and maximize.
       "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
 
+      # Tighter dash-to-panel icon spacing so all favorites fit on the panel.
+      "org/gnome/shell/extensions/dash-to-panel" = {
+        appicon-margin = 2;
+        appicon-padding = 2;
+      };
+
       # Dock favorites, with GNOME apps in place of the Noctalia-era ones.
       "org/gnome/shell".favorite-apps = [
         "org.gnome.Console.desktop"
