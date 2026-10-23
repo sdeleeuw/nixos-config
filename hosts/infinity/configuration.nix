@@ -7,7 +7,6 @@
       ../../desktops/noctalia/configuration.nix
       ../../programs/1password/configuration.nix
       ../../programs/audacity/configuration.nix
-      ../../programs/claude-code/configuration.nix
       ../../programs/cursor/configuration.nix
       ../../programs/docker/configuration.nix
       ../../programs/ffmpeg/configuration.nix
@@ -47,6 +46,9 @@
       ];
     };
   };
+
+  # Lets prebuilt (non-Nix) Linux binaries run.
+  programs.nix-ld.enable = true;
 
   programs.git.enable = true;
   programs.vim.enable = true;

@@ -8,7 +8,6 @@
 {
   imports =
     [
-      ../../programs/claude-code/home.nix
       ../../programs/cursor/home.nix
       ../../programs/fnm/home.nix
       ../../programs/github-cli/home.nix
@@ -65,6 +64,9 @@
     # A python3 on PATH for quick scripts, independent of uv/poetry projects.
     pkgs.python3
   ];
+
+  # For tools installed outside Nix by their own installers.
+  home.sessionPath = [ "$HOME/.local/bin" ];
 
   programs.vim.enable = true;
 
