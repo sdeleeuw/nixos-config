@@ -52,7 +52,6 @@
         "librewolf.desktop"
         "cursor.desktop"
         "codium.desktop"
-        "com.anthropic.Claude.desktop"
         "paseo.desktop"
         "com.nousresearch.hermes.desktop"
         "slack.desktop"

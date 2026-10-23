@@ -15,7 +15,6 @@
         "librewolf"
         "cursor"
         "codium"
-        "com.anthropic.Claude"
         "paseo"
         "com.nousresearch.hermes"
         "slack"

@@ -9,7 +9,6 @@
   imports =
     [
       ../../programs/claude-code/home.nix
-      ../../programs/claude-desktop/home.nix
       ../../programs/cursor/home.nix
       ../../programs/fnm/home.nix
       ../../programs/github-cli/home.nix
