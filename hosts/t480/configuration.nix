@@ -14,7 +14,6 @@
       ../../programs/1password/configuration.nix
       ../../programs/audacity/configuration.nix
       ../../programs/build-essential/configuration.nix
-      ../../programs/cursor/configuration.nix
       ../../programs/docker/configuration.nix
       ../../programs/ffmpeg/configuration.nix
       ../../programs/gearlever/configuration.nix

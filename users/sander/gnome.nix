@@ -50,7 +50,6 @@
         "google-chrome.desktop"
         "helium.desktop"
         "librewolf.desktop"
-        "cursor.desktop"
         "codium.desktop"
         "paseo.desktop"
         "com.nousresearch.hermes.desktop"

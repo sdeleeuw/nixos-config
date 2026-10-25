@@ -13,7 +13,6 @@
         "google-chrome"
         "helium"
         "librewolf"
-        "cursor"
         "codium"
         "paseo"
         "com.nousresearch.hermes"

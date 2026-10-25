@@ -8,7 +8,6 @@
 {
   imports =
     [
-      ../../programs/cursor/home.nix
       ../../programs/fnm/home.nix
       ../../programs/github-cli/home.nix
       ../../programs/pi-coding-agent/home.nix

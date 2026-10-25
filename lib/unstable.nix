@@ -4,7 +4,7 @@
 #
 #   { inputs, pkgs, ... }:
 #   let unstable = import ../../lib/unstable.nix { inherit inputs pkgs; };
-#   in { programs.cursor.package = unstable.code-cursor; }
+#   in { programs.vscodium.package = unstable.vscodium; }
 #
 # Passing `pkgs.config` is what keeps per-module `nixpkgs.config.allowUnfreePackages`
 # declarations applying to the unstable package too.
