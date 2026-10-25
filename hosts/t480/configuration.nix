@@ -23,6 +23,7 @@
       ../../programs/librewolf/configuration.nix
       ../../programs/libvirt/configuration.nix
       ../../programs/mullvad-vpn/configuration.nix
+      ../../programs/nix-ld/configuration.nix
       ../../programs/signal-desktop/configuration.nix
       ../../programs/slack/configuration.nix
       ../../programs/spotify/configuration.nix
@@ -55,9 +56,6 @@
       ];
     };
   };
-
-  # Lets prebuilt (non-Nix) Linux binaries run.
-  programs.nix-ld.enable = true;
 
   programs.git.enable = true;
   programs.vim.enable = true;
