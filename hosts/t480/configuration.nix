@@ -37,6 +37,18 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-uuid/d40d6d13-b471-4b97-be69-412983f41d8c";
 
+  # Hibernate to the swap LV: the gauges misreport near empty, so "10% left" can mean seconds.
+  boot.resumeDevice = "/dev/disk/by-uuid/c45eadb1-79eb-4afa-874b-bf0b3a9d41b7";
+
+  services.upower = {
+    enable = true;
+    # Act at 10%, not the default 2%: the drop skips straight past the low end.
+    criticalPowerAction = "Hibernate";
+    percentageLow = 20;
+    percentageCritical = 15;
+    percentageAction = 10;
+  };
+
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
 
