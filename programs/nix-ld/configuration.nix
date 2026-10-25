@@ -13,6 +13,7 @@
     glib
     gtk3
     libgbm
+    libglvnd
     libx11
     libxcb
     libxcomposite
