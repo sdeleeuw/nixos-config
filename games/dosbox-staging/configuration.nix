@@ -1,8 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  unstable = import ../../lib/unstable.nix { inherit inputs pkgs; };
-in
 {
-  environment.systemPackages = [ unstable.dosbox-staging ];
+  environment.systemPackages = [
+    pkgs.dosbox-staging
+  ];
 }

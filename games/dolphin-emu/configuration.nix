@@ -1,8 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  unstable = import ../../lib/unstable.nix { inherit inputs pkgs; };
-in
 {
-  environment.systemPackages = [ unstable.dolphin-emu ];
+  environment.systemPackages = [
+    pkgs.dolphin-emu
+  ];
 }
