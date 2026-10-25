@@ -7,9 +7,7 @@
   services.tlp = {
     enable = true;
     settings = {
-      # The t480 has an internal (BAT0) and a hot-swappable (BAT1) battery.
-      # Capping both at 80% slows cell wear; the start threshold keeps tiny
-      # top-ups from cycling the batteries.
+      # 80% cap slows cell wear; the start threshold stops small top-up cycles.
       START_CHARGE_THRESH_BAT0 = 75;
       STOP_CHARGE_THRESH_BAT0 = 80;
       START_CHARGE_THRESH_BAT1 = 75;
