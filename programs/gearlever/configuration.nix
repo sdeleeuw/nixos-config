@@ -9,9 +9,13 @@
     enable = true;
     binfmt = true;
 
-    # Add amixer so Vibe Typer's AppImage can mute speakers when recording.
     package = pkgs.appimage-run.override {
-      extraPkgs = pkgs: [ pkgs.alsa-utils ];
+      extraPkgs = pkgs: [
+        # amixer, so Vibe Typer's AppImage can mute speakers when recording.
+        pkgs.alsa-utils
+        # libnghttp2, for the libsoup that Unsloth Studio bundles without it.
+        pkgs.nghttp2.lib
+      ];
     };
   };
 
