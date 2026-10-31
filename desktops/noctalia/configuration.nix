@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... } :
 
 let
+  # The greeter has no flag or environment variable for its color scheme; it
+  # only reads this from greeter.toml.
   greeterConfig = (pkgs.formats.toml { }).generate "greeter.toml" {
-    session.default = "Hyprland";
-    user.default = "sander";
     appearance.scheme = "Nord";
   };
   greeterUser = config.services.greetd.settings.default_session.user;
@@ -15,22 +15,23 @@ in
     noctalia-greeter
     # Required for Noctalia's GTK3 template
     adw-gtk3
-    galculator
-    kitty
-    mousepad
     # Wayland-native ssh-askpass
     wayprompt
     # Wayland clipboard CLI
     wl-clipboard
+    # Utilities
+    kitty
+    galculator
+    mousepad
   ];
 
   programs.hyprland.enable = true;
 
   # Services Noctalia's integrations talk to.
-  networking.networkmanager.enable = lib.mkDefault true;
-  hardware.bluetooth.enable = lib.mkDefault true;
-  services.upower.enable = lib.mkDefault true;
-  services.power-profiles-daemon.enable = lib.mkDefault true;
+  networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   programs.thunar.enable = true;
 
@@ -62,8 +63,8 @@ in
   };
 
   # The greeter reads the user list from accounts-daemon.
-  services.accounts-daemon.enable = lib.mkDefault true;
-  security.polkit.enable = lib.mkDefault true;
+  services.accounts-daemon.enable = true;
+  security.polkit.enable = true;
 
   systemd.tmpfiles.settings."10-noctalia-greeter" = {
     "/var/lib/noctalia-greeter".d = {
