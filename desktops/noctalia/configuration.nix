@@ -1,12 +1,18 @@
-{ inputs, pkgs, ... } :
+{ config, lib, pkgs, ... } :
 
+let
+  greeterConfig = (pkgs.formats.toml { }).generate "greeter.toml" {
+    session.default = "Hyprland";
+    user.default = "sander";
+    appearance.scheme = "Nord";
+  };
+  greeterUser = config.services.greetd.settings.default_session.user;
+  greeterGroup = config.users.users.${greeterUser}.group;
+in
 {
-  imports = [
-    inputs.noctalia.nixosModules.default
-    inputs.noctalia-greeter.nixosModules.default
-  ];
-
   environment.systemPackages = with pkgs; [
+    noctalia
+    noctalia-greeter
     # Required for Noctalia's GTK3 template
     adw-gtk3
     galculator
@@ -20,12 +26,11 @@
 
   programs.hyprland.enable = true;
 
-  programs.noctalia = {
-    enable = true;
-
-    # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
-    recommendedServices.enable = true;
-  };
+  # Services Noctalia's integrations talk to.
+  networking.networkmanager.enable = lib.mkDefault true;
+  hardware.bluetooth.enable = lib.mkDefault true;
+  services.upower.enable = lib.mkDefault true;
+  services.power-profiles-daemon.enable = lib.mkDefault true;
 
   programs.thunar.enable = true;
 
@@ -44,17 +49,37 @@
   services.gvfs.enable = true;
 
   # Graphical login via greetd, replacing manual TTY + start-hyprland.
-  services.displayManager.noctalia-greeter = {
+  # NixOS 26.05 has no noctalia-greeter module, so this is wired up by hand.
+  services.greetd = {
     enable = true;
 
-    settings = {
-      session.default = "Hyprland";
-      user.default = "sander";
-      appearance.scheme = "Nord";
+    # Sessions aren't linked into /run/current-system/sw, so the greeter only
+    # finds Hyprland through XDG_DATA_DIRS.
+    settings.default_session.command =
+      "${lib.getExe' pkgs.coreutils "env"} "
+      + "XDG_DATA_DIRS=${config.services.displayManager.sessionData.desktops}/share "
+      + "${pkgs.noctalia-greeter}/bin/noctalia-greeter-session --";
+  };
+
+  # The greeter reads the user list from accounts-daemon.
+  services.accounts-daemon.enable = lib.mkDefault true;
+  security.polkit.enable = lib.mkDefault true;
+
+  systemd.tmpfiles.settings."10-noctalia-greeter" = {
+    "/var/lib/noctalia-greeter".d = {
+      user = greeterUser;
+      group = greeterGroup;
+      mode = "0750";
+    };
+
+    "/var/lib/noctalia-greeter/greeter.toml"."L+" = {
+      argument = "${greeterConfig}";
+      user = greeterUser;
+      group = greeterGroup;
     };
   };
 
-  # The module above only wires PAM auto-unlock for the "login" service by
+  # gnome-keyring only wires PAM auto-unlock for the "login" service by
   # default; greetd needs it set explicitly.
   security.pam.services.greetd.enableGnomeKeyring = true;
 

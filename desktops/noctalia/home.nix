@@ -1,8 +1,8 @@
-{ inputs, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
-    inputs.noctalia.homeModules.default
+    ./settings-module.nix
   ];
 
   # Hyprland configs
@@ -13,7 +13,8 @@
 
   # Noctalia configs
   programs.noctalia = {
-    enable = true;
+    # Sounds are off by default in the stable release.
+    settings.audio.enable_sounds = true;
 
     # Theme
     settings.theme.builtin = "Nord";
