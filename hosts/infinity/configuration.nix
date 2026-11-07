@@ -23,6 +23,7 @@
       ../../programs/tailscale/configuration.nix
       ../../programs/uv/configuration.nix
       ../../programs/vibe-typer/configuration.nix
+      ../../programs/vlc/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
