@@ -51,6 +51,7 @@
         "helium.desktop"
         "librewolf.desktop"
         "codium.desktop"
+        "dev.zed.Zed.desktop"
         "paseo.desktop"
         "com.nousresearch.hermes.desktop"
         "slack.desktop"

@@ -14,6 +14,7 @@
         "helium"
         "librewolf"
         "codium"
+        "dev.zed.Zed"
         "paseo"
         "com.nousresearch.hermes"
         "slack"
