@@ -11,6 +11,10 @@
     recursive = true;
   };
 
+  # Niri configs. Linked as a single file, not the whole directory, because
+  # Noctalia's niri theme template writes noctalia.kdl next to it.
+  home.file.".config/niri/config.kdl".source = ./config/niri/config.kdl;
+
   # Noctalia configs
   programs.noctalia = {
     # Sounds are off by default in the stable release.
@@ -24,6 +28,7 @@
       "qt"
       "kitty"
       "hyprland"
+      "niri"
     ];
 
     # Bar

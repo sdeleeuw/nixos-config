@@ -27,6 +27,11 @@ in
 
   programs.hyprland.enable = true;
 
+  # Niri as an alternative compositor while trying it out; pick it in the
+  # greeter. Deliberately no xwayland-satellite: the goal is a session
+  # without X, so apps that need X simply won't start under niri.
+  programs.niri.enable = true;
+
   # Services Noctalia's integrations talk to.
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;

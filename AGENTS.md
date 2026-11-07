@@ -6,7 +6,7 @@ This file provides guidance to AI coding agents (Claude Code, OpenCode, etc.) wh
 
 Personal NixOS flake configuration for two laptops, using home-manager as a flake module. There is one user, `sander`.
 
-- `infinity`: runs the Noctalia (Hyprland) desktop.
+- `infinity`: runs the Noctalia desktop, with Hyprland and Niri both installed as compositors (picked per session in the greeter; Niri is being trialled as a replacement).
 - `t480`: a ThinkPad T480 that runs GNOME and also has the `games/` modules and TLP.
 
 Each host imports its own list of `programs/` modules. When adding a program, ask which host(s) it's for, or add it to every host's imports if it's meant to be general. Don't assume `infinity` is the only host.
@@ -52,6 +52,8 @@ Modules are split by concern and composed via imports:
 - **Dock pins**: the desktop sets a minimal `settings.dock.pinned` with `lib.mkDefault` (apps that ship with the desktop). User-specific pins live in `users/<name>/noctalia-overrides.nix` and replace that list when Noctalia is loaded. Nested TOML lists don't merge additively — keep the full pin list in one place (the override), not split across modules without `mkDefault`/`mkForce`.
 - **Discovering valid ids**: dock pins, theme template ids, and greeter color schemes aren't documented in this repo. Find them by inspecting the installed packages directly: theme template ids are the keys under `[templates.*]` in `share/noctalia/assets/templates/builtin.toml` inside the `noctalia` package in the Nix store; dock pin ids match `.desktop` file basenames under `/run/current-system/sw/share/applications`; builtin color scheme names can be found via the `noctalia` package's shell completions (e.g. `share/bash-completion/completions/noctalia`).
 - **Hyprland Lua theming**: Noctalia applies its color scheme to Hyprland by appending `require("noctalia").apply_theme()` to `hyprland.lua` at runtime, then greps that exact string to skip re-appending. Since our `hyprland.lua` is a read-only store symlink, that write fails silently every time unless the line is already there — so it must live literally in `desktops/noctalia/config/hypr/hyprland.lua` (top-level, not a submodule), wrapped in `pcall` since `noctalia.lua` doesn't exist until Noctalia's first run.
+- **Niri theming**: same problem for Niri. Noctalia's niri template writes `~/.config/niri/noctalia.kdl` and appends `include "noctalia.kdl"` to `config.kdl`, which is a read-only store symlink. The include therefore lives literally at the end of `desktops/noctalia/config/niri/config.kdl` as `include optional=true "noctalia.kdl"`. The `optional=true` matters: a plain include makes niri reject the whole config until Noctalia has run once. Only `config.kdl` is linked (not the whole `~/.config/niri` directory), so Noctalia can still write `noctalia.kdl` next to it.
+- **Niri without X**: the Niri session deliberately has no `xwayland-satellite`; apps that need X won't start under Niri. Prefer native Wayland flags over adding it back.
 
 ### Hardware note
 
