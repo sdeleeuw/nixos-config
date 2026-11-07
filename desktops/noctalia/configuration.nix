@@ -20,7 +20,6 @@ in
     # Wayland clipboard CLI
     wl-clipboard
     # Utilities
-    kitty
     galculator
     mousepad
   ];

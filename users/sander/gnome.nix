@@ -45,7 +45,7 @@
 
       # Dock favorites, with GNOME apps in place of the Noctalia-era ones.
       "org/gnome/shell".favorite-apps = [
-        "org.gnome.Console.desktop"
+        "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
         "google-chrome.desktop"
         "helium.desktop"
@@ -66,6 +66,9 @@
         "it.mijorus.gearlever.desktop"
       ];
     };
+
+    # Ghostty instead of GNOME Console as the terminal.
+    programs.ghostty.enable = true;
 
     # Papirus icon theme for GTK apps.
     gtk = {

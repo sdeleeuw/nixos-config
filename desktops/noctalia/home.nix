@@ -26,7 +26,7 @@
       "gtk3"
       "gtk4"
       "qt"
-      "kitty"
+      "ghostty"
       "hyprland"
       "niri"
     ];
@@ -44,16 +44,18 @@
     settings.dock.item_spacing = 4;
     settings.dock.pinned = lib.mkDefault [
       "thunar"
-      "kitty"
+      "com.mitchellh.ghostty"
       "org.xfce.mousepad"
       "galculator"
     ];
   };
 
-  # Required by Noctalia's Kitty template.
-  programs.kitty = {
+  # Noctalia's Ghostty template writes themes/noctalia and appends this line
+  # to the config, which is a read-only store symlink. Setting it here makes
+  # the template see it's already there and skip the write.
+  programs.ghostty = {
     enable = true;
-    extraConfig = "include ./themes/noctalia.conf";
+    settings.theme = "noctalia";
   };
 
   # Wayprompt configs

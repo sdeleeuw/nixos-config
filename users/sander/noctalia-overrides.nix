@@ -8,7 +8,7 @@
       wallpaper.default.path = "${config.home.homeDirectory}/.wallpapers/nordic.jpg";
 
       dock.pinned = [
-        "kitty"
+        "com.mitchellh.ghostty"
         "thunar"
         "google-chrome"
         "helium"

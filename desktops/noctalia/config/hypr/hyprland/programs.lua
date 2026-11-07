@@ -1,6 +1,6 @@
 -- Programs used by hyprland/binds.lua
 return {
-    terminal    = "kitty",
+    terminal    = "ghostty",
     fileManager = "dolphin",
     menu        = "hyprlauncher",
     webBrowser  = "firefox",
