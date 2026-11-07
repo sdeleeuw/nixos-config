@@ -4,27 +4,35 @@ This file provides guidance to AI coding agents (Claude Code, OpenCode, etc.) wh
 
 ## Overview
 
-Personal NixOS flake configuration for a single host (`infinity`), using home-manager as a flake module. There is one user, `sander`.
+Personal NixOS flake configuration for two laptops, using home-manager as a flake module. There is one user, `sander`.
+
+- `infinity`: runs the Noctalia (Hyprland) desktop.
+- `t480`: a ThinkPad T480 that runs GNOME and also has the `games/` modules and TLP.
+
+Each host imports its own list of `programs/` modules. When adding a program, ask which host(s) it's for, or add it to every host's imports if it's meant to be general. Don't assume `infinity` is the only host.
 
 ## Commands
 
 - Check the flake evaluates and all modules parse: `nix flake check`
-- Build the system closure without activating it: `nix build .#nixosConfigurations.infinity.config.system.build.toplevel`
+- Build the system closure without activating it: `nix build .#nixosConfigurations.<host>.config.system.build.toplevel`
 - Parse a single module for syntax errors: `nix-instantiate --parse <path/to/file.nix>`
-- Evaluate an option to inspect its resolved value: `nix eval .#nixosConfigurations.infinity.config.<option.path>`
+- Evaluate an option to inspect its resolved value: `nix eval .#nixosConfigurations.<host>.config.<option.path>`
 - Update flake inputs: `nix flake update` (or `nix flake lock --update-input <name>` for one input)
+
+`<host>` is `infinity` or `t480`. Run `hostname` to see which machine you're on.
 
 Do not run `nixos-rebuild switch` — that activates the config on the live system and is left to the user to run manually.
 
 ## Architecture
 
-`flake.nix` is the single entry point. It declares inputs (nixpkgs, nixpkgs-unstable, home-manager) and wires `nixosConfigurations.infinity` from `hosts/infinity/configuration.nix` plus the home-manager module, pointing `home-manager.users.sander` at `users/sander/home.nix`.
+`flake.nix` is the single entry point. It declares inputs (nixpkgs, nixpkgs-unstable, home-manager) and wires `nixosConfigurations.infinity` and `nixosConfigurations.t480` from `hosts/<name>/configuration.nix`. Each host also gets the home-manager module, which points `home-manager.users.sander` at the shared `users/sander/home.nix`.
 
 Modules are split by concern and composed via imports:
 
-- `hosts/<name>/configuration.nix` — the system-level entry point for a host (boot, users, hardware, timezone), importing whichever `desktops/` and `programs/` modules that host needs.
+- `hosts/<name>/configuration.nix` — the system-level entry point for a host (boot, users, hardware, timezone), importing whichever `desktops/`, `programs/` and `games/` modules that host needs.
 - `desktops/<name>/` — a desktop environment: `configuration.nix` (system-level: session packages, `programs.hyprland`, greetd, etc.) and, where the desktop ships user-independent defaults, a paired `home.nix` (home-manager: per-user settings for that desktop). The system module's imports list ends with `home-manager.users.sander.imports = [ ./home.nix ]`, tying the two halves together so importing the desktop's system module automatically pulls in the matching home-manager config. This keeps system and home-manager config from drifting out of sync. `desktops/gnome/` is the exception: it is system-only, and all of its per-user settings live in `users/sander/gnome.nix` so other users get plain GNOME. Config for a program that's tightly coupled to the desktop itself (e.g. Hyprland, kitty, Thunar) lives inline in the desktop's own files rather than as a separate `programs/` module — see `desktops/noctalia/home.nix`. App config files live under `desktops/<name>/config/<app>/` and are linked individually with `home.file.".config/<app>"` (never mount all of `~/.config` at once — other modules also write there).
-- `programs/<name>/` — a single program/tool, as `configuration.nix` (system-level) and/or `home.nix` (home-manager), depending on what the program needs. These are imported from a host (for programs any host should have, e.g. `programs/1password`, `programs/docker`).
+- `programs/<name>/` — a single program/tool, as `configuration.nix` (system-level) and/or `home.nix` (home-manager), depending on what the program needs. Hosts import them one by one, so a program meant for every machine (e.g. `programs/1password`, `programs/docker`) has to be added to each host's imports.
+- `games/<name>/` — same shape as `programs/`, for games and emulators. Currently only `t480` imports them.
 - `users/<name>/home.nix` — the base home-manager config for a user, imported once from `flake.nix`. Put things here that should apply regardless of which desktop/host is in use (e.g. `programs.git`, `programs/uv`, GTK bookmarks). Desktop-specific home-manager config that every user should get belongs in the relevant `desktops/*/home.nix` instead. When a user preference must override a desktop default *only if that desktop is present* (e.g. Noctalia dock pins), use a gated override module such as `users/<name>/noctalia-overrides.nix` (`lib.optionalAttrs (options.programs ? noctalia) { ... }`) rather than putting user apps into the desktop module. For a desktop without a `home.nix` (GNOME), gate the whole user module on the system option instead: `lib.mkIf osConfig.services.desktopManager.gnome.enable` in `users/<name>/gnome.nix`. It must be an `mkIf`, since `lib.optionalAttrs config...` recurses while the home-manager submodule type is resolved.
 - `lib/` — shared Nix helpers used by modules. `lib/unstable.nix` builds the configured `nixpkgs-unstable` package set (see the "Unstable packages" convention).
 
