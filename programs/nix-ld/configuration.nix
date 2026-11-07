@@ -25,6 +25,7 @@
     nspr
     nss
     pango
+    portaudio
     systemd
   ];
 }

@@ -67,6 +67,15 @@
   # For tools installed outside Nix by their own installers.
   home.sessionPath = [ "$HOME/.local/bin" ];
 
+  # PortAudio (a nix-ld library) is needed by Hermes' prebuilt Python for
+  # microphone capture -- wake word and voice mode. nix-ld makes it loadable,
+  # but sounddevice locates it with ctypes.util.find_library(), which searches
+  # ld.so.cache alone -- absent on NixOS -- so it reports "not found". Putting
+  # the lib dir on LD_LIBRARY_PATH fixes the lookup as well as the dlopen.
+  # environment.d (not home.sessionVariables) so GUI apps launched by the
+  # desktop get it too, not just login shells.
+  systemd.user.sessionVariables.LD_LIBRARY_PATH = "${pkgs.portaudio}/lib";
+
   programs.vim.enable = true;
 
   programs.bash = {
