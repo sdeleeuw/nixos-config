@@ -15,6 +15,7 @@
       ../../programs/slack/home.nix
       ../../programs/uv/home.nix
       ../../programs/vscodium/home.nix
+      ../../programs/zed-editor/home.nix
       ./gnome.nix
       ./noctalia-overrides.nix
       ./oudommen.nix
