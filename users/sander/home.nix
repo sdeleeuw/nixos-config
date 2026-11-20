@@ -10,9 +10,9 @@
     [
       ../../programs/stable/fnm/home.nix
       ../../programs/stable/poetry/home.nix
+      ../../programs/stable/uv/home.nix
       ../../programs/unstable/github-cli/home.nix
       ../../programs/unstable/slack/home.nix
-      ../../programs/unstable/uv/home.nix
       ../../programs/unstable/vscodium/home.nix
       ../../programs/unstable/zed-editor/home.nix
       ./gnome.nix
