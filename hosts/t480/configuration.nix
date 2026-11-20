@@ -30,7 +30,6 @@
       ../../programs/unstable/signal-desktop/configuration.nix
       ../../programs/unstable/slack/configuration.nix
       ../../programs/unstable/spotify/configuration.nix
-      ../../programs/unstable/uv/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
