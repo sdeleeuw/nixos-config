@@ -6,10 +6,10 @@ in
 {
   services.mullvad-vpn = {
     enable = true;
-    # nixpkgs-unstable split the app in two: `mullvad` is the daemon/CLI
-    # (including `mullvad-exclude`, which the security wrapper sources) and
-    # `mullvad-vpn` is only the GUI. The 26.05 module has a single `package`
-    # option, so point it at the daemon and install the GUI alongside it.
+
+    # Unstable split Mullvad: `mullvad` is the daemon/CLI, `mullvad-vpn` only the GUI.
+    # The 26.05 module has one `package` option, so the GUI is installed separately;
+    # from 26.11, use `gui.enable` and `gui.package` instead.
     package = unstable.mullvad;
   };
 
