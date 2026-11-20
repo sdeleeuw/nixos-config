@@ -5,25 +5,25 @@
     [
       ./hardware-configuration.nix
       ../../desktops/noctalia/configuration.nix
-      ../../programs/1password/configuration.nix
-      ../../programs/audacity/configuration.nix
-      ../../programs/build-essential/configuration.nix
-      ../../programs/docker/configuration.nix
-      ../../programs/ffmpeg/configuration.nix
-      ../../programs/gearlever/configuration.nix
-      ../../programs/google-chrome/configuration.nix
-      ../../programs/libreoffice/configuration.nix
-      ../../programs/librewolf/configuration.nix
-      ../../programs/libvirt/configuration.nix
-      ../../programs/mullvad-vpn/configuration.nix
-      ../../programs/nix-ld/configuration.nix
-      ../../programs/signal-desktop/configuration.nix
-      ../../programs/slack/configuration.nix
-      ../../programs/spotify/configuration.nix
-      ../../programs/tailscale/configuration.nix
-      ../../programs/uv/configuration.nix
-      ../../programs/vibe-typer/configuration.nix
-      ../../programs/vlc/configuration.nix
+      ../../programs/stable/audacity/configuration.nix
+      ../../programs/stable/build-essential/configuration.nix
+      ../../programs/stable/docker/configuration.nix
+      ../../programs/stable/ffmpeg/configuration.nix
+      ../../programs/stable/gearlever/configuration.nix
+      ../../programs/stable/google-chrome/configuration.nix
+      ../../programs/stable/libreoffice/configuration.nix
+      ../../programs/stable/librewolf/configuration.nix
+      ../../programs/stable/libvirt/configuration.nix
+      ../../programs/stable/nix-ld/configuration.nix
+      ../../programs/stable/tailscale/configuration.nix
+      ../../programs/stable/vibe-typer/configuration.nix
+      ../../programs/stable/vlc/configuration.nix
+      ../../programs/unstable/1password/configuration.nix
+      ../../programs/unstable/mullvad-vpn/configuration.nix
+      ../../programs/unstable/signal-desktop/configuration.nix
+      ../../programs/unstable/slack/configuration.nix
+      ../../programs/unstable/spotify/configuration.nix
+      ../../programs/unstable/uv/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

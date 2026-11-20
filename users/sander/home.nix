@@ -8,14 +8,14 @@
 {
   imports =
     [
-      ../../programs/fnm/home.nix
-      ../../programs/github-cli/home.nix
-      ../../programs/pi-coding-agent/home.nix
-      ../../programs/poetry/home.nix
-      ../../programs/slack/home.nix
-      ../../programs/uv/home.nix
-      ../../programs/vscodium/home.nix
-      ../../programs/zed-editor/home.nix
+      ../../programs/stable/fnm/home.nix
+      ../../programs/stable/poetry/home.nix
+      ../../programs/unstable/github-cli/home.nix
+      ../../programs/unstable/pi-coding-agent/home.nix
+      ../../programs/unstable/slack/home.nix
+      ../../programs/unstable/uv/home.nix
+      ../../programs/unstable/vscodium/home.nix
+      ../../programs/unstable/zed-editor/home.nix
       ./gnome.nix
       ./noctalia-overrides.nix
       ./oudommen.nix
