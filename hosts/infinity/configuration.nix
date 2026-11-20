@@ -15,7 +15,6 @@
       ../../programs/stable/librewolf/configuration.nix
       ../../programs/stable/libvirt/configuration.nix
       ../../programs/stable/nix-ld/configuration.nix
-      ../../programs/stable/tailscale/configuration.nix
       ../../programs/stable/vibe-typer/configuration.nix
       ../../programs/stable/vlc/configuration.nix
       ../../programs/unstable/1password/configuration.nix
@@ -23,6 +22,7 @@
       ../../programs/unstable/signal-desktop/configuration.nix
       ../../programs/unstable/slack/configuration.nix
       ../../programs/unstable/spotify/configuration.nix
+      ../../programs/unstable/tailscale/configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
