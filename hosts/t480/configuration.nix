@@ -29,6 +29,7 @@
       ../../programs/unstable/slack/configuration.nix
       ../../programs/unstable/spotify/configuration.nix
       ../../programs/unstable/tailscale/configuration.nix
+      ../../users/sander/1password.nix
       ../../users/sander/vibe-typer.nix
     ];
 
