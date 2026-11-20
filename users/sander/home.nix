@@ -8,9 +8,9 @@
 {
   imports =
     [
-      ../../programs/stable/fnm/home.nix
-      ../../programs/stable/poetry/home.nix
-      ../../programs/stable/uv/home.nix
+      ../../programs/system/fnm/home.nix
+      ../../programs/system/poetry/home.nix
+      ../../programs/system/uv/home.nix
       ../../programs/unstable/github-cli/home.nix
       ../../programs/unstable/vscodium/home.nix
       ../../programs/unstable/zed-editor/home.nix
@@ -57,6 +57,9 @@
     # Command-line audio encoders for converting to FLAC and MP3.
     pkgs.flac
     pkgs.lame
+
+    # ffmpeg and ffprobe, for converting and inspecting audio and video.
+    pkgs.ffmpeg
 
     # A python3 on PATH for quick scripts, independent of uv/poetry projects.
     pkgs.python3

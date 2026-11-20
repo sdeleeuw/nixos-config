@@ -4,24 +4,17 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./tlp.nix
       ../../desktops/gnome/configuration.nix
-      ../../programs/games/dolphin-emu/configuration.nix
-      ../../programs/games/dosbox-staging/configuration.nix
-      ../../programs/games/luanti/configuration.nix
-      ../../programs/games/ppsspp/configuration.nix
-      ../../programs/games/retroarch/configuration.nix
-      ../../programs/games/supertuxkart/configuration.nix
+      ../../programs/system/build-essential/configuration.nix
+      ../../programs/system/docker/configuration.nix
+      ../../programs/system/nix-ld/configuration.nix
       ../../programs/stable/audacity/configuration.nix
-      ../../programs/stable/build-essential/configuration.nix
-      ../../programs/stable/docker/configuration.nix
-      ../../programs/stable/ffmpeg/configuration.nix
       ../../programs/stable/gearlever/configuration.nix
       ../../programs/stable/google-chrome/configuration.nix
       ../../programs/stable/libreoffice/configuration.nix
       ../../programs/stable/librewolf/configuration.nix
-      ../../programs/stable/libvirt/configuration.nix
-      ../../programs/stable/nix-ld/configuration.nix
-      ../../programs/stable/tlp/configuration.nix
+      ../../programs/stable/virt-manager/configuration.nix
       ../../programs/stable/vlc/configuration.nix
       ../../programs/unstable/1password/configuration.nix
       ../../programs/unstable/mullvad-vpn/configuration.nix
@@ -29,6 +22,12 @@
       ../../programs/unstable/slack/configuration.nix
       ../../programs/unstable/spotify/configuration.nix
       ../../programs/unstable/tailscale/configuration.nix
+      ../../programs/games/dolphin-emu/configuration.nix
+      ../../programs/games/dosbox-staging/configuration.nix
+      ../../programs/games/luanti/configuration.nix
+      ../../programs/games/ppsspp/configuration.nix
+      ../../programs/games/retroarch/configuration.nix
+      ../../programs/games/supertuxkart/configuration.nix
       ../../users/sander/1password.nix
       ../../users/sander/vibe-typer.nix
     ];

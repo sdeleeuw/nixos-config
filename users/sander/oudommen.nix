@@ -13,7 +13,7 @@
 #   - av: needs the ffmpeg headers/libraries
 # libpq.pg_config is a separate derivation from the default output of libpq,
 # and the .pc files live in the split -dev outputs of each library. This lives
-# here rather than in programs/stable/poetry so the shared poetry module stays
+# here rather than in programs/system/poetry so the shared poetry module stays
 # generic and no other user inherits this project's dependencies.
 let
   nativeBuildInputs = with pkgs; [

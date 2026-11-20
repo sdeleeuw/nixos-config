@@ -5,16 +5,15 @@
     [
       ./hardware-configuration.nix
       ../../desktops/noctalia/configuration.nix
+      ../../programs/system/build-essential/configuration.nix
+      ../../programs/system/docker/configuration.nix
+      ../../programs/system/nix-ld/configuration.nix
       ../../programs/stable/audacity/configuration.nix
-      ../../programs/stable/build-essential/configuration.nix
-      ../../programs/stable/docker/configuration.nix
-      ../../programs/stable/ffmpeg/configuration.nix
       ../../programs/stable/gearlever/configuration.nix
       ../../programs/stable/google-chrome/configuration.nix
       ../../programs/stable/libreoffice/configuration.nix
       ../../programs/stable/librewolf/configuration.nix
-      ../../programs/stable/libvirt/configuration.nix
-      ../../programs/stable/nix-ld/configuration.nix
+      ../../programs/stable/virt-manager/configuration.nix
       ../../programs/stable/vlc/configuration.nix
       ../../programs/unstable/1password/configuration.nix
       ../../programs/unstable/mullvad-vpn/configuration.nix
