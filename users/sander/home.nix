@@ -11,7 +11,6 @@
       ../../programs/stable/fnm/home.nix
       ../../programs/stable/poetry/home.nix
       ../../programs/unstable/github-cli/home.nix
-      ../../programs/unstable/pi-coding-agent/home.nix
       ../../programs/unstable/slack/home.nix
       ../../programs/unstable/uv/home.nix
       ../../programs/unstable/vscodium/home.nix
