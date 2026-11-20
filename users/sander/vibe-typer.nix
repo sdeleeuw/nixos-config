@@ -7,8 +7,13 @@
   hardware.uinput.enable = true;
 
   # Access to the input devices and to /dev/uinput.
-  users.users.sander.extraGroups = [ "input" "uinput" ];
+  users.users.sander.extraGroups = [
+    "input"
+    "uinput"
+  ];
 
   # It pastes text through the Wayland clipboard.
-  environment.systemPackages = [ pkgs.wl-clipboard ];
+  environment.systemPackages = [
+    pkgs.wl-clipboard
+  ];
 }

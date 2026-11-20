@@ -4,7 +4,9 @@ let
   unstable = import ../helpers.nix { inherit inputs pkgs; };
 in
 {
-  nixpkgs.config.allowUnfreePackages = [ "spotify" ];
+  nixpkgs.config.allowUnfreePackages = [
+    "spotify"
+  ];
 
   environment.systemPackages = [
     unstable.spotify

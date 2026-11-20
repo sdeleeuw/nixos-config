@@ -4,7 +4,11 @@ let
   unstable = import ../helpers.nix { inherit inputs pkgs; };
 in
 {
-  nixpkgs.config.allowUnfreePackages = [ "slack" ];
+  nixpkgs.config.allowUnfreePackages = [
+    "slack"
+  ];
 
-  environment.systemPackages = [ unstable.slack ];
+  environment.systemPackages = [
+    unstable.slack
+  ];
 }

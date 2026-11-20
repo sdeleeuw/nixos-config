@@ -90,5 +90,7 @@ in
 
   # sander always gets this desktop's home-manager config on any host that
   # imports this module. Other users are unaffected.
-  home-manager.users.sander.imports = [ ./home.nix ];
+  home-manager.users.sander.imports = [
+    ./home.nix
+  ];
 }

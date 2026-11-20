@@ -13,5 +13,7 @@ in
     package = unstable.mullvad;
   };
 
-  environment.systemPackages = [ unstable.mullvad-vpn ];
+  environment.systemPackages = [
+    unstable.mullvad-vpn
+  ];
 }

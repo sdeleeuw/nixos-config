@@ -43,6 +43,7 @@ Modules are split by concern and composed via imports:
 - **Secrets**: never committed to the repo or referenced as Nix store paths (which would copy them into the world-readable store). Reference a plain runtime path instead (e.g. `"${config.home.homeDirectory}/.config/<app>/env"` passed to a module's `environmentFiles`) and document that the user must create the file themselves.
 - **Mutable user files**: don't manage user-editable files with `home.file` (that makes a read-only store symlink). Seed defaults once via `home.activation` when the target is missing — see the GTK bookmarks seed in `users/sander/home.nix`.
 - **Comments**: keep code comments compact: preferably 1–2 lines, at most 3. Say what a line does or why it's there; put a short comment directly above a non-obvious line rather than one long block at the top of the file. Put a blank line above each comment (block), except at the start of the file or directly after an opening `{`, `[` or `(`.
+- **Lists**: always put list elements on their own lines, even for a single element (`[`, one element per line, `];`), so adding one is a one-line diff. Generated files (`hardware-configuration.nix`) are left as generated.
 - **Commit messages**: focus on *why*, not *what* — the diff already shows what changed. Look at `git log` for tone/length before writing one.
 
 ### Noctalia gotchas

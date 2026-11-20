@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.fnm ];
+  home.packages = [
+    pkgs.fnm
+  ];
 
   # fnm has no NixOS/home-manager module, so set up its shell integration
   # manually. --use-on-cd auto-switches Node versions when entering a

@@ -34,8 +34,12 @@ let
   # interactive shell.
   poetry = pkgs.symlinkJoin {
     name = "poetry-with-native-build-toolchain";
-    paths = [ pkgs.poetry ];
-    nativeBuildInputs = [ pkgs.makeWrapper ];
+    paths = [
+      pkgs.poetry
+    ];
+    nativeBuildInputs = [
+      pkgs.makeWrapper
+    ];
     postBuild = ''
       wrapProgram $out/bin/poetry \
         --prefix PATH : ${lib.makeBinPath nativeBuildInputs} \

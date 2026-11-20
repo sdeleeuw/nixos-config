@@ -63,7 +63,9 @@
   ];
 
   # For tools installed outside Nix by their own installers.
-  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   # PortAudio (a nix-ld library) is needed by Hermes' prebuilt Python for
   # microphone capture -- wake word and voice mode. nix-ld makes it loadable,
